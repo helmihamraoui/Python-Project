@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Slider</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer_style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav class="navbaR">
+            <a href="/profile" class="hover-this"><img src="{{ url_for('static', filename='img/profile.png') }}" alt=""></a>
+            
+            {% if feedbacks %}
+                <a href="javascript:void(0);" class="icons-notif" data-bs-toggle="modal" data-bs-target="#notifModal">
+                    <img src="{{ url_for('static', filename='img/icons-notif.png') }}" alt="Notifications">
+                </a>
+            {% else %}
+                <a href="javascript:void(0);" class="hover-this" data-bs-toggle="modal" data-bs-target="#notifModal">
+                    <img src="{{ url_for('static', filename='img/notif.png') }}" alt="Notifications">
+                </a>
+            {% endif %}
+            
+            <a href="/messages"><img src="{{ url_for('static', filename='img/chat.png') }}" alt="chat"></a>
+            <a href="/home" class="hover-this"><span>Home</span></a>
+            <a href="/add/posts" class="hover-this"><span>Add post</span></a>
+            <a href="/saved" class="hover-this"><span>Saved</span></a>
+            {% if user.type_user == 1 %}
+            <a href="/dashbord/admin/request"><span>Admin</span></a>
+            {% endif %}
+            <a href="/logout"><img src="{{ url_for('static', filename='img/logout.png') }}" alt="Click me" id="clickable-image" class="clickable-img"></a>
+        </nav>
+
+        <div class="big_box">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3>Any questions?</h3>
+                </div>
+                <div class="chat-box" id="chat-box">
+                    <!-- Dynamic conversation will appear here -->
+                </div>
+
+                <!-- Scrollable question list -->
+                <div class="question-list-container">
+                    <ul id="question-list">
+                        {% for qa in questions %}
+                            <li><button class="question-btn" data-question="{{ qa.question }}">{{ qa.question }}</button></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right"> 
+                <div class="catt">
+                    <h1>Categories</h1>
+                </div>
+                <div class="category_container">
+                    {% for category in all_cata %}
+                        <div class="box">
+                            <a href="/posts/{{ category.id }}"><img src="{{ url_for('static', filename='img/' + category.image) }}" alt="accessoires" onmouseover="zoomin(this)" onmouseout="zoomout(this)"></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>   
+        </div>
+
+        <h1 class="some">Some Posts</h1>
+        <div class="some_post">
+            {% for post in posts %}
+                <div class="posst">
+                    <p class="p">{{ post.poster.user_name }}</p>
+                    <div class="post">
+                        <a href="/view/{{ post.id }}"><img src="{{ url_for('static', filename='img/' + post.image) }}" alt="Image" width="200"></a>
+                        <p class="fs-5">description: {{ post.description }}</p>
+                    </div>
+                    <div class="actions">
+                        <a href="/view/{{ post.id }}"><button class="btn">View</button></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p>Contact Us: <a href="mailto:tounsiasiz@gmail">regive@gmail.com</a> | +216 58 414 008</p>
+                <img src="../static/img/logo.png" alt="">
+                <h2>Share More  .  Waste Less</h2>
+            </div>
+        </footer>
+
+        <!-- Notification Modal -->
+        <div class="modal fade" id="notifModal" tabindex="-1" aria-labelledby="notifModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notifModalLabel">Feedback From Admin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% if feedbacks %}
+                            {% for feedback in feedbacks %}
+                                <p>{{ feedback.feedback }} <strong>{{ feedback.created_at }}</strong></p>
+                            {% endfor %}
+                        {% else %}
+                            <p>No new notifications at the moment.</p>
+                        {% endif %}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/script_home.js') }}"></script>
+    <!-- Bootstrap JS (for modal functionality) -->
+    <script src="{{ url_for('static', filename='js/script_chatbot.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

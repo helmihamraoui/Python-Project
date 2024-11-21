@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_about.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/footer_style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="containe">
+        <div class="navbar">
+                <h1>Regive</h1>
+                <div class="button">
+                    <button><a href="/">Sign up</a></button>
+                    <button><a href="/login">Login</a></button>
+                </div>
+                
+        </div>
+        <div class="about">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+            <p>This platform aims to create a community-driven space where people can easily share or donate items and services 
+                they no longer need, helping others in their neighborhood who may be struggling to afford basic necessities. 
+                Whether it's furniture, clothing, tools, or skills, the website provides a simple, no-cost way for individuals 
+                to give and receive within their local community. By connecting neighbors who have excess resources 
+                with those in need, the platform fosters a culture of generosity, reduces waste, and strengthens community ties, 
+                all without the exchange of money. It's an easy way to make a positive impact and support one another.</p>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p>Contact Us: <a href="mailto:tounsiasiz@gmail">regive@gmail.com</a> | +216 58 414 008</p>
+                <img src="../static/img/logo.png" alt="">
+                <h2>Share More  .  Waste Less</h2>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

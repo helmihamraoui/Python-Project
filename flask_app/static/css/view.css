@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+/* Post Container */
+.containe{
+    background-color: #333333;
+    height: 870px;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+.post-container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #F39C23;
+    border-radius: 8px;
+    margin-top: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.post-header {
+    background-color: #292828;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0;
+}
+
+.post-meta {
+    font-size: 30px;
+    color: white;
+}
+
+/* Content Section */
+.post-content {
+    display: flex;
+    gap: 20px;
+}
+
+.post-image {
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-description,
+.post-location,
+.post-date,
+.post-type {
+    font-size: 20px;
+    color: black;
+}
+.actions{
+    display: flex;
+    gap: 10px;
+}
+.chat {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #000000; /* Button color (e.g., blue) */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chat:hover {
+    background-color: #343535; /* Darker shade on hover */
+}
+
+
+/* Save Button */
+.save-form {
+    margin-top: 20px;
+}
+
+.btn-save {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-image {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .post-details {
+        text-align: center;
+    }
+}

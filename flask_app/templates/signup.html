@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_sign.css') }}">
+<head>
+    <title>Sign Up Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1> &nbsp;&nbsp;&nbsp;WELCOME </h1>
+            <a href="/about"><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
+        </div>
+        <div class="right-section">
+            <h2>Sign Up</h2>
+            <form action="/register" method="post">
+                <div class="input-group">
+                    <input type="text" name="user_name" placeholder="Username">
+                    <span class="icon">👤</span>
+                    {%for message in get_flashed_messages(category_filter=["user_name_validation"]):%}
+                    <div class="alert alert-warning">
+                    <p style="color: red;">{{message}}</p> 
+                    </div>
+                    {%endfor%}
+                    
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder="Email">
+                    <span class="icon">📧</span>
+                    <br>
+                    {%for message in get_flashed_messages(category_filter=["email_validation"]):%}
+                    <div class="alert alert-waring">
+                    {{message}}
+                    </div>
+                    {%endfor%}
+                    
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password">
+                    <span class="icon">🔒</span>
+                    <br>
+                    {%for message in get_flashed_messages(category_filter=["password_validation"]):%}
+                    <div  class="alert alert-warning">
+                        <p style="color: red;">{{message}}</p>
+                    </div>
+                    {%endfor%}
+                    
+                    
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

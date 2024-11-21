@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style_sign.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_sign.css') }}">
+    <title>login form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="right-section">
+            <h2>Login</h2>
+            <form action="/login/user" method="post">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" name="email">
+                    <span class="icon">📧</span>
+                    {%for message in get_flashed_messages(category_filter=["email_validation_login"]):%}
+                    <div class="alert alert-warning">
+                    <p style="color: red;">{{message}}</p> 
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" name="password">
+                    <span class="icon">🔒</span>
+                    {%for message in get_flashed_messages(category_filter=["login_password_validation"]):%}
+                    <div class="alert alert-warning">
+                    <p style="color: red;">{{message}}</p> 
+                    </div>
+                    {%endfor%}
+                </div>
+                <button type="submit" class="btn"> Login</button>
+                <p class="login-link">Don't have an account <a href="/">Sign Up</a></p>
+            </form>
+        </div>
+        <div class="left-section">
+            <h1> &nbsp;&nbsp;&nbsp;WELCOME </h1>
+            <a href="/about"><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
+        </div>
+    </div>
+</body>
+</html>

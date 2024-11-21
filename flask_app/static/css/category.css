@@ -1,0 +1,157 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.sud_bar { 
+    height: 700px;
+    padding: 20px;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 35px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+.dashbord_icon {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        padding:0;
+        margin:0;
+        width:0;
+        transition: width 0.6s linear;
+        }
+/* .sud_bar.active ul {
+            width: 10%;
+            } */
+.sud_bar ul li {
+                transform: rotateY(0deg);
+                opacity:0;
+                transition: transform 0.6s linear, opacity 0.6s linear;
+                }
+.sud_bar.active ul li {
+                    opacity: 1;
+                    transform: rotateY(360deg);
+                }
+.sud_bar ul a {
+                    position: relative;
+                    color: black;
+                    margin: 0 10px;
+                    font-size: 1.2em;
+                    }
+.icon {
+                        background-color: white;
+                        border: 0;
+                        cursor: pointer;
+                        padding: 0;
+                        height: 30px;
+                        width: 30px;
+                        position: relative;
+                        }
+.icon .line {
+                            background-color: blue;
+                            height: 2px;
+                            width: 20px;
+                            position: absolute;
+                            top: 10px;
+                            left: 5px;
+    transition: transform 0.6s linear;
+}
+    .icon .line2 {
+            top: auto;
+            bottom: 10px;
+        }
+.sud_bar.active .icon .line1 {
+    transform: rotate(-765deg) translateY(5.5px);
+    }
+    .sud_bar.active .icon .line2 {
+    transform: rotate(765deg) translateY(-5.5px);
+    }
+
+.dashbord_icon{
+    margin-top: 200px;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.title{
+    font-style: oblique;
+    text-align: center;
+    height: 80px;
+    /* margin-top: 7%; */
+}
+.containe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 0 auto;
+}
+.box_show{
+    background-color:#D9D9D9 ;
+    height: 700px;
+    width: 1800px;
+    border-radius: 35px;
+    border-radius: 25px;
+}
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.box_show h1{
+    text-align: center;
+    padding: 1%;
+}
+.box_show form {
+    width: 500px;
+    padding: 1%;
+}
+.show_category{
+    background-color: whitesmoke;
+    height: 40%;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    overflow-y:scroll;
+    border-radius: 25px;
+}
+.my_category{
+    width: 300px;
+    height: 200px;
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.category button{
+    width: 300px;
+}
+.title{
+    text-align: center;
+    margin-top: 100px;
+    color: orange;
+}
+.contein{
+    background-color: rgba(85, 84, 84, 0.801);
+    min-height: 100vh;
+}

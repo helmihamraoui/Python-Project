@@ -1,0 +1,143 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.containe{
+    background-color: #212529;
+    padding: 20px;
+    min-height: 100vh;
+}
+/* Box Container */
+.box1 {
+    max-width: 1000px;
+    margin: 110px auto;
+    padding: 20px;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user_profile {
+    font-size: 2rem;
+    color:  #F39C23;
+    text-transform: uppercase; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Post Styling */
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color:  #F39C23;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.image img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+    border: none;
+}
+
+.des {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.des h1 {
+    font-size: 1.5rem;
+    color: #343a40;
+    margin: 0;
+}
+
+.des h2 {
+    font-size: 1rem;
+    color: #495057;
+    margin: 0;
+}
+
+/* Actions Styling */
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.actions .btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.actions .btn-primary {
+    background-color: black;
+    color: #fff;
+    border: none;
+}
+
+.actions .btn-primary:hover {
+    background-color: #daa050;
+    color: black;
+}
+
+.actions .btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+}
+
+.actions .btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.actions .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.actions .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .post {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actions {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+}
