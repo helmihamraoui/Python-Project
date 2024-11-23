@@ -40,7 +40,7 @@
             {% for post in saves %}
             <div class="post">
                 <div class="image">
-                    <img src="{{ url_for('static', filename='img/' + post.image) }}" alt="Image" width="200">
+                    <img id="img" src="{{ url_for('static', filename='img/' + post.image) }}" alt="Image" width="200">
                     <div class="des">
                         <h1>{{ post.title }}:</h1>
                         <h2>{{ post.description }}</h2>
